@@ -1,0 +1,62 @@
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+    id "org.springframework.boot" version '2.0.3.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "io.franzbecker.gradle-lombok"
+
+repositories {
+	mavenCentral()	
+	maven { url "https://maven.vaadin.com/vaadin-addons" }
+}
+
+ext {
+	// Has to be 1.16.20 as 1.18 failed with gradle 4.9 & jdk8
+	lombokVersion = '1.16.20'	
+	springBootVersion = '2.0.3.RELEASE'
+	vaadinVersion = '10.0.1'
+}
+
+// Eclipse configuration (from eclipse)
+eclipse {
+	// always download sources and docs
+    classpath {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+// Lombock configuration (from gradle-lombok)
+lombok {
+	version = lombokVersion
+	// Dont check the hash
+	sha256 = ""
+}
+
+// Dependency management configuration (from io.spring.dependency-management)
+dependencyManagement {
+	imports {
+		mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
+	}
+}
+
+dependencies {	
+	// Vaadin spring boot starter (version from BOM)
+	compile("com.vaadin:vaadin-spring-boot-starter")
+	
+	//JUnit (version from BOM)
+	testCompile("junit:junit")	
+	// Spring boot test support (version from BOM)
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	
+	// Lombok 
+	compileOnly("org.projectlombok:lombok:${lombokVersion}")	
+}
+
+group = 'de.eldar'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
