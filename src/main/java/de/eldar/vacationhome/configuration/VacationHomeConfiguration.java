@@ -22,7 +22,9 @@ public class VacationHomeConfiguration implements WebMvcConfigurer {
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    registry
+	    // Add a resource handler for picture files that will be 
+		// stored outside our binary in order for the vaadin servlet not to mess with them
+		registry
 	      .addResourceHandler("/images/**")
 	      .addResourceLocations(imageRootDir);
 	 }

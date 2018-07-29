@@ -1,7 +1,10 @@
+# Eclipse
 .project
 .classpath
 .factorypath
 .settings/
-build/
 bin/
+
+# Gradle
 .gradle
+build/

@@ -5,9 +5,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-/**
- * Basic tests for our spring boot application.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class VacationHomeApplicationTest {
@@ -18,8 +15,6 @@ public class VacationHomeApplicationTest {
 	 * at least sane.
 	 */
 	@Test
-	public void contextLoads() {
-
-	}
+	public void contextLoads() {}
 	
 }

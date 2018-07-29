@@ -4,7 +4,11 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 
+// "" is the default route for the Vaadin navigation
+@Theme(Lumo.class)
 @Route("")
 public class DefaultRoute extends VerticalLayout{
 
