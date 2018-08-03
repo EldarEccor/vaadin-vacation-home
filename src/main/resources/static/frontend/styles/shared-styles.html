@@ -42,13 +42,17 @@ body {
 	height: 100%;
 	min-height: 100vh;
 	margin: 0 auto;
-	max-width : 1080px;
+	max-width : 1280px;
 }
 
 .header {
-	display: flex;
     background-color: var(--lumo-contrast-20pct);
 	box-shadow: 0 1px 0 0 var(--lumo-contrast-5pct);
+}
+
+
+.hero{
+    position: relative; 
 }
 
 .hero-image{
@@ -59,8 +63,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;  
-      
 }
 
 .hero-text {
@@ -101,17 +103,16 @@ body {
 .content {
     background-color: var(--lumo-contrast-10pct);
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	display: flex;
+	display: block;
 	width: 100%;
 	color: var(--lumo-primary-text-color)
 }
 
 .footer{
     background-color: var(--lumo-contrast-20pct);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
     text-align: center;
     font: normal 18px sans-serif;
+    bottom: 0;
 }
 
 .footer-motto{

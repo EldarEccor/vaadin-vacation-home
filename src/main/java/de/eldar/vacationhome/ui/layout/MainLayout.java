@@ -31,6 +31,7 @@ public class MainLayout extends Div  implements RouterLayout{
 	private Div contentContainer;
 	
 	private Div footerContainer;
+		
 	
 	public MainLayout() {
 		
@@ -55,11 +56,14 @@ public class MainLayout extends Div  implements RouterLayout{
         
 		
 		heroContainer = new Div();
-		heroContainer.setClassName("hero-image");
+		heroContainer.setClassName("hero");
+		
+		Div heroImageContainer = new Div();
+		heroImageContainer.setClassName("hero-image");
 		Div heroTextContainer = new Div();
 		heroTextContainer.setClassName("hero-text");		
 		heroTextContainer.add(new H1("Vaadin vacation home overlay text"));
-		heroContainer.add(heroTextContainer);
+		heroContainer.add(heroImageContainer,heroTextContainer);
 		
 		headerContainer = new Div();
 		headerContainer.setClassName("header");	
@@ -78,7 +82,9 @@ public class MainLayout extends Div  implements RouterLayout{
 		
 		footerContainer = new Div(scrollUP,footerName);
 		footerContainer.setClassName("footer");		
-		add(headerContainer,heroContainer,contentContainer,footerContainer);
+		
+		contentContainer.add(footerContainer);
+		add(headerContainer,heroContainer,contentContainer);
 		setClassName("main-layout");
 	}	
 
@@ -87,6 +93,7 @@ public class MainLayout extends Div  implements RouterLayout{
 		if (content != null) {
 			this.contentContainer.removeAll();
 			this.contentContainer.add(Objects.requireNonNull((Component)content));
-		}
+			this.contentContainer.add(footerContainer);
+		}		
 	}
 }

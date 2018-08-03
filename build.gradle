@@ -49,7 +49,7 @@ repositories {
 dependencies {	
 	// Vaadin spring boot starter (version from BOM)
 	compile("com.vaadin:vaadin-spring-boot-starter")
-	
+	compile("org.webjars.bowergithub.polymerelements:paper-input:2.2.3")
 	//JUnit (version from spring BOM)
 	testCompile("junit:junit")	
 	// Spring boot test support (version from spring BOM)
