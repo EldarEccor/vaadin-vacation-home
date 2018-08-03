@@ -20,10 +20,12 @@ eclipse {
         downloadSources = true
     }
 }
+
 apply plugin: 'org.springframework.boot'
 springBoot {
 	mainClassName = 'de.eldar.vacationhome.VacationHomeApplication'
 }
+
 apply plugin: 'io.spring.dependency-management'
 // Implicitly loaded by boot plugin
 dependencyManagement {
@@ -31,6 +33,7 @@ dependencyManagement {
 		mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
 	}
 }
+
 apply plugin: "io.franzbecker.gradle-lombok"
 lombok {
 	version = lombokVersion
@@ -47,9 +50,9 @@ dependencies {
 	// Vaadin spring boot starter (version from BOM)
 	compile("com.vaadin:vaadin-spring-boot-starter")
 	
-	//JUnit (version from BOM)
+	//JUnit (version from spring BOM)
 	testCompile("junit:junit")	
-	// Spring boot test support (version from BOM)
+	// Spring boot test support (version from spring BOM)
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	
 	// Lombok 

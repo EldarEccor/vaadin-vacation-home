@@ -1,0 +1,112 @@
+<!--
+  ~ Copyright 2000-2017 Vaadin Ltd.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  ~ use this file except in compliance with the License. You may obtain a copy of
+  ~ the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  ~ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing permissions and limitations under
+  ~ the License.
+  -->
+
+<!-- Dependency resources -->
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<!-- Defines the reviews-list element -->
+<dom-module id="guestbook-view"> 
+<template>
+<style include="view-styles">
+:host {
+   display: block;
+   width : 100%;
+   margin-bottom: 2.5%;
+}
+
+.guestbook{
+	color: var(--lumo-primary-text-color);
+}
+
+.guestbook_entry{
+	background-color: var(--lumo-contrast-10pct);		
+	box-shadow: 0 1px 0 0 var(--lumo-contrast-5pct);
+	margin: var(--lumo-space-s);
+    padding-bottom: 0.25%;
+    padding-left: 0.5%;
+    padding-right: var(--lumo-space-xs);   
+    display: block;
+}
+
+.guestbook_entry_details{
+	color: var(--lumo-secondary-text-color);
+	margin: var(--lumo-space-xs);
+	font-weight: 400;
+	display:flex;
+	margin-bottom: auto;
+}
+
+.guestbook_entry_title{    
+	font-size: var(--lumo-font-size-l);
+	margin: var(--lumo-space-xs);
+	margin-bottom: auto;
+}
+
+.guestbook_entry_meta{
+	font-size: var(--lumo-font-size-s);
+	margin: var(--lumo-space-xs);
+	margin-left: auto; 	
+}
+
+.guestbook_entry hr{
+	margin: var(--lumo-space-xs);
+	margin-top: 1px;
+	background-color: var(--lumo-contrast-50pct);	
+}
+
+.guestbook_entry_comment{
+	margin-top: 1px;
+	margin-bottom: 2px;
+    padding: var(--lumo-space-xs);
+    padding-right: var(--lumo-space-m);	
+	background-color: var(--lumo-contrast-10pct);
+}
+
+</style>
+<div class="guestbook">
+	<h2 id="header">Welcome to our guestbook!</h2>
+	<h3>Recent entries:</h3>
+	<template is="dom-if" if="{{!_isEmpty(entries)}}">
+	<template is="dom-repeat" items="[[entries]]">
+		<div class="guestbook_entry">
+			<div class="guestbook_entry_details">
+				<span class="guestbook_entry_title">[[item.title]]</span>
+				<span class="guestbook_entry_meta">[[item.author]], [[item.date]]</span>
+			</div>
+			<hr/>
+			<p class="guestbook_entry_comment">[[item.comment]]</p>
+		</div>
+	</template> 
+	</template>
+	<template is="dom-if" if="{{_isEmpty(entries)}}">
+		<div class="no_entries">No guestbook entries yet!</div>
+	</template>
+</div>
+</template>
+ <script>
+ class GuestbookRoute extends Polymer.Element {
+     static get is() {
+         return 'guestbook-view'
+     }
+     
+     _isEmpty(array) {
+         return array.length == 0;
+     }
+ }
+ customElements.define(GuestbookRoute.is, GuestbookRoute);
+</script> 
+
+</dom-module>
