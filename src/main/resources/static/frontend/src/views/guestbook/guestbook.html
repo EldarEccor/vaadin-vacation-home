@@ -15,7 +15,12 @@
   -->
 
 <!-- Dependency resources -->
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
 
+<link rel="import" href="../../src/views/guestbook/create-entry.html">
 <!-- Defines the reviews-list element -->
 <dom-module id="guestbook-view"> 
 <template>
@@ -28,11 +33,6 @@
 
 .guestbook{
 	color: var(--lumo-primary-text-color);
-}
-
-.guestbook_create{
-	margin: var(--lumo-space-l);
-	display: block;
 }
 
 .guestbook_list{
@@ -88,18 +88,9 @@
 
 </style>
 <div class="guestbook">
-	<div class="guestbook_create">
-		<h4>Leave a message</h4>
-		<paper-input always-float-label label="Your Name" id="authorInput"></paper-input>
-		<paper-input always-float-label label="A title" id="titleInput"></paper-input>
-		<paper-textarea id="commentInput" always-float-label label="Your message (multiple lines possible)"></paper-textarea>
-    	<vaadin-button on-click="addEntry" id="addEntry" theme="primary">
-       		<span>Leave message</span>
-    	</vaadin-button>
-	</div>
+	<create-guestbook-entry id="createEntryForm"></create-guestbook-entry>
 	<div class="guestbook_list">
 		<h4>Most recent posts:</h4>
-		<template is="dom-if" if="{{!_isEmpty(entries)}}">
 		<template is="dom-repeat" items="[[entries]]">	
 		<div class="guestbook_entry">
 			<div class="guestbook_entry_details">
@@ -110,12 +101,7 @@
 			<p class="guestbook_entry_comment">[[item.comment]]</p>
 		</div>
 		</template> 
-		</template>
 	</div>	
-	<template is="dom-if" if="{{_isEmpty(entries)}}">
-		<div class="no_entries">No guestbook entries yet!</div>
-	</template>
-	
 </div>
 </template>
  <script>
