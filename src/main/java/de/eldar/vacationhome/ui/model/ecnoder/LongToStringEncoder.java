@@ -17,14 +17,11 @@ package de.eldar.vacationhome.ui.model.ecnoder;
 
 import com.vaadin.flow.templatemodel.ModelEncoder;
 
-/**
- * @author Vaadin Ltd
- *
- */
-
 public class LongToStringEncoder implements ModelEncoder<Long, String> {
 
-    @Override
+	private static final long serialVersionUID = -2849139832005859615L;
+
+	@Override
     public String encode(Long modelValue) {
         if (modelValue == null)
             return null;

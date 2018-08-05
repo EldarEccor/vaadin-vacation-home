@@ -1,20 +1,15 @@
 <!-- Import the style modules -->
-<link rel="import"
-	href="../bower_components/vaadin-lumo-styles/color.html">
-
-<link rel="import" href="bower_components/vaadin-lumo-styles/color.html">
-<link rel="import"
-	href="bower_components/vaadin-lumo-styles/sizing.html">
-<link rel="import"
-	href="bower_components/vaadin-lumo-styles/spacing.html">
-<link rel="import" href="bower_components/vaadin-lumo-styles/style.html">
-<link rel="import"
-	href="bower_components/vaadin-lumo-styles/typography.html">
+<link rel="import" href="../bower_components/vaadin-lumo-styles/color.html">
+<link rel="import" href="../bower_components/vaadin-lumo-styles/sizing.html">
+<link rel="import" href="../bower_components/vaadin-lumo-styles/style.html">
+<link rel="import" href="../bower_components/vaadin-lumo-styles/typography.html">
 
 
 <dom-module id="view-styles"> 
 <template>
 <style include="lumo-color lumo-typography lumo-badge">
+
+
 html {
 	height: auto; 
 	background-color: transparent !important;
@@ -23,108 +18,14 @@ html {
 body {
 	/* Avoid horizontal scrollbars, mainly on IE11 */
 	overflow-x: hidden;
-	background-color: var(--lumo-contrast-5pct);
+	background-color: var(--lumo-base-color);	
 }
 </style>
 </template> 
 </dom-module>
 
-<cutom-style>
-<style include="view-styles">
-.main-layout {	
-	background-color: var(--lumo-base-color);
-	color: var(--lumo-primary-text-color);
-	font-family: var(--lumo-font-family);
-	overflow: auto;
-	flex-direction: column;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	min-height: 100vh;
-	margin: 0 auto;
-	max-width : 1280px;
-}
+<custom-style>
+<style>
 
-.header {
-    background-color: var(--lumo-contrast-20pct);
-	box-shadow: 0 1px 0 0 var(--lumo-contrast-5pct);
-}
-
-
-.hero{
-    position: relative; 
-}
-
-.hero-image{
-	display: flex;
-	background-image: url("/frontend/graphics/header.jpg");    
-    height: 225px;
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.hero-text {
-    text-align: center;
-    position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
-	font-size: var(--lumo-font-size-l);	
-}
-
-.hero-text h1{
-	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-.header_navigation {
-	height: 64px;
-	display: flex;
-	align-items: center;
-	flex: 1;
-    justify-content: center; 	
-    
-}
-
-.header_nav-item {
-	display: inline-flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 4px 8px;	
-	font-size: var(--lumo-font-size-s);
-	color: var(--lumo-primary-text-color);
-	font-weight: 500;
-	line-height: 1.3;
-
-}
-
-.content {
-    background-color: var(--lumo-contrast-10pct);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	display: block;
-	width: 100%;
-	color: var(--lumo-primary-text-color)
-}
-
-.footer{
-    background-color: var(--lumo-contrast-20pct);
-    text-align: center;
-    font: normal 18px sans-serif;
-    bottom: 0;
-}
-
-.footer-motto{
-	color: var(--lumo-primary-text-color)
-	font-size: var(--lumo-font-size-m);
-    margin: 0;
-}
-
-.footer-name{
-    color: var(--lumo-primary-text-color)
-	font-size: var(--lumo-font-size-s);
-    margin: 0;
-}
 </style>
-</cutom-style>
+</custom-style>

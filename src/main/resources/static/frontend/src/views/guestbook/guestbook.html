@@ -16,9 +16,6 @@
 
 <!-- Dependency resources -->
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
 
 <link rel="import" href="../../../bower_components/vaadin-tabs/src/vaadin-tabs.html">
 <link rel="import" href="../../../bower_components/vaadin-tabs/src/vaadin-tab.html">
@@ -26,30 +23,32 @@
 <link rel="import" href="../../../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../../../bower_components/iron-pages/iron-pages.html">
 
-<link rel="import" href="../../src/views/guestbook/create-entry.html">
-<link rel="import" href="../../src/views/guestbook/entries-list.html">
+<link rel="import" href="../../views/guestbook/create-entry.html">
+<link rel="import" href="../../views/guestbook/entries-list.html">
+
+<link rel="import" href="../../../styles/shared-styles.html">
 <!-- Defines the reviews-list element -->
 <dom-module id="guestbook-view"> 
 <template>
 <style include="view-styles">
 :host {
    display: block;
-   width : 100%;
-   margin-bottom: 2.5%;
+   width : 100%;  
 }
 
 .guestbook{
-	color: var(--lumo-primary-text-color);
+	color: var(--lumo-primary-text-color);	
 }
 
 page {
-  width: 100%;
+  display:flex;
   flex-direction: column;
   align-items: center;
 }
 </style>
 <div class="guestbook">
 
+<!-- 
 <vaadin-tabs selected="{{page}}" theme="equal-width-tabs">
   <vaadin-tab>Leave us a message</vaadin-tab>
   <vaadin-tab>Browse most recent messages</vaadin-tab>
@@ -59,7 +58,9 @@ page {
   <page><create-guestbook-entry id="createEntryForm"></create-guestbook-entry></page>
   <page><guestbook-entries-list id="entriesList"></guestbook-entries-list></page>
 </iron-pages>
-
+ -->
+ <create-guestbook-entry id="createEntryForm"></create-guestbook-entry>
+ <guestbook-entries-list id="entriesList"></guestbook-entries-list>
 </div>
 </template>
  <script>

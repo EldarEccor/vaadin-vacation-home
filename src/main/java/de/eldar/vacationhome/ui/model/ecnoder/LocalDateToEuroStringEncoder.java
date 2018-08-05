@@ -10,10 +10,12 @@ import com.vaadin.flow.templatemodel.ModelEncoder;
  *
  */
 
-public class LocalDateToStringEncoder
+public class LocalDateToEuroStringEncoder
         implements ModelEncoder<LocalDate, String> {
 
-    public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
+	private static final long serialVersionUID = -6368057991627480719L;
+
+	public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter
             .ofPattern("dd.MM.YYYY");
 
     @Override

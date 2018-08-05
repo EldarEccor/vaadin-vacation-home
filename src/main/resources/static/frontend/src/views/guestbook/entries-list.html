@@ -18,8 +18,12 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
-<link rel="import" href="../../styles/shared-styles" />
+<link rel="import" href="../../../styles/shared-styles.html">
+
+<link rel="import" href="../../../bower_components/vaadin-lumo-styles/color.html">
+<link rel="import" href="../../../bower_components/vaadin-lumo-styles/sizing.html">
+<link rel="import" href="../../../bower_components/vaadin-lumo-styles/style.html">
+<link rel="import" href="../../../bower_components/vaadin-lumo-styles/typography.html">
 
 <!-- Defines the reviews-list element -->
 <dom-module id="guestbook-entries-list"> 
@@ -31,13 +35,14 @@
 }
 
 .guestbook_entry{
-	background-color: var(--lumo-contrast-10pct);		
 	box-shadow: 0 1px 0 0 var(--lumo-contrast-5pct);
+	background-color: var(--lumo-contrast-10pct);
 	margin: var(--lumo-space-s);
     padding-bottom: 0.25%;
     padding-left: 0.5%;
     padding-right: var(--lumo-space-xs);   
     display: block;
+    border-radius: var(--lumo-border-radius);
 }
 
 .guestbook_entry_details{

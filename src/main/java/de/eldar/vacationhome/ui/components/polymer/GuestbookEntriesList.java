@@ -13,7 +13,7 @@ import com.vaadin.flow.templatemodel.TemplateModel;
 
 import de.eldar.vacationhome.ui.components.polymer.GuestbookEntriesList.GuestbookModel;
 import de.eldar.vacationhome.ui.model.GuestbookEntry;
-import de.eldar.vacationhome.ui.model.ecnoder.LocalDateToStringEncoder;
+import de.eldar.vacationhome.ui.model.ecnoder.LocalDateToEuroStringEncoder;
 
 @Tag("guestbook-entries-list")
 @HtmlImport("frontend://src/views/guestbook/entries-list.html")
@@ -23,7 +23,7 @@ public class GuestbookEntriesList extends PolymerTemplate<GuestbookModel> {
 
 	public interface GuestbookModel extends TemplateModel {
 		@Exclude({ GuestbookEntry.ID })
-		@Encode(value = LocalDateToStringEncoder.class, path = GuestbookEntry.DATE)
+		@Encode(value = LocalDateToEuroStringEncoder.class, path = GuestbookEntry.DATE)
 		void setEntries(List<GuestbookEntry> entries);
 
 		List<GuestbookEntry> getEntries();
