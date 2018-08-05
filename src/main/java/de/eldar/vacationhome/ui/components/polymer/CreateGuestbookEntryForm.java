@@ -103,13 +103,13 @@ public class CreateGuestbookEntryForm extends PolymerTemplate<TemplateModel> {
 	private void initBindings() {
 		binder.forField(authorInput)
 				.withValidator(new RegexpValidator("Does not match regexp : " + AUTHOR_PATTERN, AUTHOR_PATTERN))
-				.asRequired().bind("author");
+				.asRequired().bind(GuestbookEntry.AUTHOR);
 
 		binder.forField(titleInput)
 				.withValidator(new RegexpValidator("Does not match regexp : " + TITLE_PATTERN, TITLE_PATTERN))
-				.asRequired().bind("title");
+				.asRequired().bind(GuestbookEntry.TITLE);
 
-		binder.forField(commentArea).asRequired().bind("comment");
+		binder.forField(commentArea).asRequired().bind(GuestbookEntry.COMMENT);
 	}
 
 	private void initInputListeners() {

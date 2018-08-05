@@ -20,7 +20,14 @@
 <link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-textarea.html">
 
+<link rel="import" href="../../../bower_components/vaadin-tabs/src/vaadin-tabs.html">
+<link rel="import" href="../../../bower_components/vaadin-tabs/src/vaadin-tab.html">
+
+<link rel="import" href="../../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../../bower_components/iron-pages/iron-pages.html">
+
 <link rel="import" href="../../src/views/guestbook/create-entry.html">
+<link rel="import" href="../../src/views/guestbook/entries-list.html">
 <!-- Defines the reviews-list element -->
 <dom-module id="guestbook-view"> 
 <template>
@@ -35,73 +42,24 @@
 	color: var(--lumo-primary-text-color);
 }
 
-.guestbook_list{
-	margin: var(--lumo-space-l);
-	display: block;
+page {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
-
-.guestbook_entry{
-	background-color: var(--lumo-contrast-10pct);		
-	box-shadow: 0 1px 0 0 var(--lumo-contrast-5pct);
-	margin: var(--lumo-space-s);
-    padding-bottom: 0.25%;
-    padding-left: 0.5%;
-    padding-right: var(--lumo-space-xs);   
-    display: block;
-}
-
-.guestbook_entry_details{
-	color: var(--lumo-secondary-text-color);
-	margin: var(--lumo-space-xs);
-	font-weight: 400;
-	display: flex;
-	margin-bottom: auto;
-}
-
-.guestbook_entry_title{    
-	font-size: var(--lumo-font-size-l);
-	margin: var(--lumo-space-xs);
-	margin-bottom: auto;
-}
-
-.guestbook_entry_meta{
-	font-size: var(--lumo-font-size-s);
-	margin: var(--lumo-space-xs);
-	margin-left: auto; 	
-	margin-bottom: auto;
-}
-
-.guestbook_entry hr{
-	margin: var(--lumo-space-xs);
-	margin-top: 1px;
-	background-color: var(--lumo-contrast-50pct);	
-}
-
-.guestbook_entry_comment{
-	margin-top: 1px;
-	margin-bottom: 2px;
-    padding: var(--lumo-space-xs);
-    padding-right: var(--lumo-space-m);	
-	background-color: var(--lumo-contrast-10pct);
-	white-space : pre;
-}
-
 </style>
 <div class="guestbook">
-	<create-guestbook-entry id="createEntryForm"></create-guestbook-entry>
-	<div class="guestbook_list">
-		<h4>Most recent posts:</h4>
-		<template is="dom-repeat" items="[[entries]]">	
-		<div class="guestbook_entry">
-			<div class="guestbook_entry_details">
-				<span class="guestbook_entry_title">[[item.title]]</span>
-				<span class="guestbook_entry_meta">[[item.author]], [[item.date]]</span>
-			</div>
-			<hr/>
-			<p class="guestbook_entry_comment">[[item.comment]]</p>
-		</div>
-		</template> 
-	</div>	
+
+<vaadin-tabs selected="{{page}}" theme="equal-width-tabs">
+  <vaadin-tab>Leave us a message</vaadin-tab>
+  <vaadin-tab>Browse most recent messages</vaadin-tab>
+</vaadin-tabs>
+
+<iron-pages selected="[[page]]">
+  <page><create-guestbook-entry id="createEntryForm"></create-guestbook-entry></page>
+  <page><guestbook-entries-list id="entriesList"></guestbook-entries-list></page>
+</iron-pages>
+
 </div>
 </template>
  <script>
