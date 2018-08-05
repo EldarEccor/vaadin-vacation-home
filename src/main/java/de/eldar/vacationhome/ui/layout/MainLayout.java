@@ -32,9 +32,6 @@ public class MainLayout extends PolymerTemplate<MainLayoutModel>  implements Rou
 	@Id("contentContainer")
 	private Div contentContainer;
 	
-	@Id("footerContainer")
-	private Div footerContainer;
-	
 	public interface MainLayoutModel extends TemplateModel {		
 		void setHeroText(String text);		
 	}

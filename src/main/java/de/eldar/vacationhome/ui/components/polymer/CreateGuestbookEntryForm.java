@@ -10,7 +10,6 @@ import java.util.function.Consumer;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.HtmlImport;
-import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.polymertemplate.Id;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 import com.vaadin.flow.data.binder.Binder;
@@ -37,9 +36,6 @@ public class CreateGuestbookEntryForm extends PolymerTemplate<TemplateModel> {
 
 	Binder<GuestbookEntry> binder = new Binder<>(GuestbookEntry.class);
 
-	@Id("createEntryHeader")
-	private H4 createEntryHeader;
-	
 	@Id("addEntry")
 	private Button addEntry;
 
@@ -96,7 +92,7 @@ public class CreateGuestbookEntryForm extends PolymerTemplate<TemplateModel> {
 
 		commentArea.setRequired(true);
 		commentArea.setAlwaysFloatLabel(true);
-		commentArea.setLabel("Your message - required");
+		commentArea.setLabel("Your message - required (Multiple lines possible)");
 		commentArea.setAutoValidate(true);
 	}
 
